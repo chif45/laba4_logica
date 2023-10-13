@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\Logic\laba4_logica\laba4\main.cpp(91): warning C4715: print_tree: значение возвращается не при всех путях выполнения
+  laba4.vcxproj -> D:\Logic\laba4_logica\x64\Debug\laba4.exe

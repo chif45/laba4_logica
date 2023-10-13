@@ -34,6 +34,7 @@ struct Node* CreateTree(struct Node* root, struct Node* r, int data)
 			free(r);
 			return root;
 		}
+
 		return r;
 	}
 
@@ -70,14 +71,15 @@ int countOccurrences(struct Node* root, int key) {
 	}
 }
 
-void print_tree(struct Node* r, int l)
+int print_tree(struct Node* r, int l)
 {
+	int col = 0;
 
 	if (r == NULL) {
-		return;
+		return 1;
 	}
 
-	print_tree(r->right, l + 1);
+	col += print_tree(r->right, l + 1);
 
 	for (int i = 0; i < l; i++) {
 		printf("    ");
@@ -85,7 +87,7 @@ void print_tree(struct Node* r, int l)
 
 	printf("%d\n", r->data);
 
-	print_tree(r->left, l + 1);
+	col += print_tree(r->left, l + 1);
 }
 
 
@@ -112,7 +114,7 @@ int main()
 
 	}
 
-	print_tree(root, 0);
+	printf("%d\n",print_tree(root, 0)-1);
 	printf("Введите элемент для поиска\n");
 	scanf("%d", &item);
 	int ans = countOccurrences(root, item);
